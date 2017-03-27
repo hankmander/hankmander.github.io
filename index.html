@@ -1,34 +1,7 @@
+<!doctype html>
 <html>
-    <body>
-	<div id="weld-embed" data-screen-slug="screen-2" data-scroll-offset='{"phone":200, "desktop": 500}' style="height:2000px;margin-top:120px;width:100%;"></div>
-	<script>
-	 var embedDiv = document.getElementById('weld-embed');
-
-	 // Create friendly IFRAME
-	 var newIframe = document.createElement('iframe');
-	 newIframe.src = 'about:blank';
-	 newIframe.frameBorder = '0';
-	 newIframe.height = '100%';
-	 newIframe.style="width: 1px; min-width: 100%;";
-	 embedDiv.appendChild(newIframe);
-
-	 // Create the HTML content inside IFRAME
-	 var httpGetAsync = function (theUrl, callback) {
-	     var xmlHttp = new XMLHttpRequest();
-	     xmlHttp.onreadystatechange = function () { 
-		 if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-		     callback(xmlHttp.responseText);
-		 }
-	     }
-	     xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-	     xmlHttp.send(null);
-	 }
-
-	 httpGetAsync('https://weld-experimental.herokuapp.com/api/embed/slug:ios.html', function (htmlContent) {
-	     newIframe.contentWindow.document.write(htmlContent);
-	     newIframe.contentWindow.screenSlug = embedDiv.dataset.screenSlug;
-	     newIframe.contentWindow.document.close();
-	 });
-	</script>
-    </body>
+  <body>
+    <div id="weld-embed" style="height:2000px"></div>
+    <script type="text/javascript" src="https://api-production-weld.netdna-ssl.com/embed/slug:castle-grayskull"></script>
+  </body>
 </html>
